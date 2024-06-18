@@ -1,0 +1,43 @@
+import 'package:flutter/material.dart';
+import 'package:introduccion_hello_world/src/pages/client/products/list/client_products_list_page.dart';
+import 'package:introduccion_hello_world/src/pages/delivery/orders/list/delivery_orders_list_page.dart';
+import 'package:introduccion_hello_world/src/pages/login/login_page.dart';
+import 'package:introduccion_hello_world/src/pages/register/register_page.dart';
+import 'package:introduccion_hello_world/src/pages/restaurant/orders/list/restaurant_orders_list_page.dart';
+import 'package:introduccion_hello_world/src/pages/roles/roles_pages.dart';
+import 'package:introduccion_hello_world/src/utils/my_colors.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "Delivery App Flutter",
+      debugShowCheckedModeBanner: false,
+      initialRoute: "login",
+      routes: {
+        'login' : (BuildContext context) => const LoginPage(),
+        'register' : (BuildContext context) => const RegisterPage(),
+        'roles' : (BuildContext context) => const RolesPages(),
+        'client/products/list' : (BuildContext context) => const ClientProductsListPage(),
+        'restaurant/orders/list' : (BuildContext context) => const RestaurantOrdersListPage(),
+        'delivery/orders/list' : (BuildContext context) => const DeliveryOrdersListPage()
+      },
+      theme: ThemeData(
+        fontFamily: 'NimbusSans',
+        primaryColor: MyColors.primaryColor
+      )
+    );
+  }
+}
+
